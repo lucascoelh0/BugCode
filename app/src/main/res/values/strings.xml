@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DigitalHouse</string>
+    <string name="login">Login</string>
+    <string name="dica_usuario">Nome do usuário</string>
+    <string name="dica_senha">Senha</string>
+    <string name="se_cadastrar">Não tem conta? Cadastre-se</string>
+    <string name="email">Email</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="info">info</string>
+    <string name="back_button">Back button</string>
+    <string name="cadastrar_maiusculo">CADASTRAR</string>
+</resources>
