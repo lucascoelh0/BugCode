@@ -1,16 +1,16 @@
-package com.example.digitalhouse
+package com.example.digitalhouse.ui
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.view.Menu
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.digitalhouse.R
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_cadastro.*
@@ -49,7 +49,9 @@ class CadastroActivity : AppCompatActivity() {
             } else if (senha != confirmarSenha) {
 
                 makeSnack("As senhas não coincidem.")
-                cadastro_confirmar_senha.backgroundTintList = ContextCompat.getColorStateList(this, R.color.colorRed)
+                cadastro_confirmar_senha.backgroundTintList = ContextCompat.getColorStateList(this,
+                    R.color.colorRed
+                )
 
             } else {
                 val intent = Intent(this, LoginActivity::class.java)

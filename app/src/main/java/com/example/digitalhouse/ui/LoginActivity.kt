@@ -1,4 +1,4 @@
-package com.example.digitalhouse
+package com.example.digitalhouse.ui
 
 import android.app.Activity
 import android.content.Context
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.digitalhouse.R
 import com.example.digitalhouse.domain.Usuario
 import kotlinx.android.synthetic.main.login_body.*
 import kotlin.random.Random

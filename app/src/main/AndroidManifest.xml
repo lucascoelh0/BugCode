@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".ui.MainActivity"/>
 
-        <activity android:name=".CadastroActivity"/>
+        <activity android:name=".ui.CadastroActivity"/>
 
     </application>
 
