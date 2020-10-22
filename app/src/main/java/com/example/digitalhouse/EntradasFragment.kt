@@ -16,4 +16,7 @@ class EntradasFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_entradas, container, false)
     }
 
+    companion object {
+        fun newInstance() = EntradasFragment()
+    }
 }
