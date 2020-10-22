@@ -57,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
                 loginIntent.putExtra("username", Usuario(Random.nextInt(), edUsername.text.toString(), edSenha.text.toString()))
                 startActivity(loginIntent)
 
-                makeShortToast("Bem vindo, ${edUsername.text.toString()}!")
+//                makeShortToast("Bem vindo, ${edUsername.text.toString()}!")
 
             } else {
                 makeShortToast("Username ou senha incorretos!")

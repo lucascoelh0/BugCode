@@ -1,8 +1,12 @@
 package com.example.digitalhouse.ui
 
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.example.digitalhouse.EntradasFragment
 import com.example.digitalhouse.GastosFragment
 import com.example.digitalhouse.HomeFragment
@@ -21,13 +25,25 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.mywallet)
 
         val frag = HomeFragment.newInstance()
+        button_home.setTextColor(getColor(R.color.colorPurple))
+        button_home.setBackgroundResource(R.drawable.home_button_selected)
+
         supportFragmentManager.beginTransaction().apply {
-            addToBackStack(null)
             add(R.id.frameLayout, frag)
             commit()
         }
 
         button_home.setOnClickListener {
+
+            button_home.setTextColor(getColor(R.color.colorPurple))
+            button_home.setBackgroundResource(R.drawable.home_button_selected)
+
+            button_entradas.setTextColor(getColor(R.color.colorWhite))
+            button_entradas.setBackgroundResource(R.drawable.home_button_default)
+
+            button_gastos.setTextColor(getColor(R.color.colorWhite))
+            button_gastos.setBackgroundResource(R.drawable.home_button_default)
+
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack(null)
                 replace(R.id.frameLayout, HomeFragment.newInstance())
@@ -36,6 +52,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_entradas.setOnClickListener {
+
+            button_entradas.setTextColor(getColor(R.color.colorPurple))
+            button_entradas.setBackgroundResource(R.drawable.home_button_selected)
+
+            button_home.setTextColor(getColor(R.color.colorWhite))
+            button_home.setBackgroundResource(R.drawable.home_button_default)
+
+            button_gastos.setTextColor(getColor(R.color.colorWhite))
+            button_gastos.setBackgroundResource(R.drawable.home_button_default)
+
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack(null)
                 replace(R.id.frameLayout, EntradasFragment.newInstance())
@@ -44,12 +70,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_gastos.setOnClickListener {
+
+            button_gastos.setTextColor(getColor(R.color.colorPurple))
+            button_gastos.setBackgroundResource(R.drawable.home_button_selected)
+
+            button_entradas.setTextColor(getColor(R.color.colorWhite))
+            button_entradas.setBackgroundResource(R.drawable.home_button_default)
+
+            button_home.setTextColor(getColor(R.color.colorWhite))
+            button_home.setBackgroundResource(R.drawable.home_button_default)
+
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack(null)
                 replace(R.id.frameLayout, GastosFragment.newInstance())
                 commit()
             }
         }
+
+//        if (supportFragmentManager.backStackEntryCount > 3) {
+//            supportFragmentManager.popBackStack()
+//        }
 
         toolbar.setNavigationIcon(R.drawable.ic_backbt)
 
