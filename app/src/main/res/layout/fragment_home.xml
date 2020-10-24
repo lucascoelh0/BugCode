@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".ui.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:id="@+id/btnGastos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="161dp"
             android:layout_marginTop="305dp"
             android:layout_marginEnd="153dp"
             android:layout_marginBottom="378dp"
-            android:text="@string/home"
+            android:text="@string/gastos"
             android:textSize="36sp"
             android:textStyle="bold"
             android:textColor="@color/colorPurple"

@@ -3,94 +3,100 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
+    android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
     <include
         android:id="@+id/include_toolbar"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        app:navigationIcon="@drawable/ic_backbt" />
 
-        <Button
-            android:id="@+id/button_home"
-            android:drawableStart="@drawable/ic_baseline_house_24"
-            android:textColor="#FFF"
-            android:textSize="17sp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textAllCaps="false"
-            android:background="@drawable/home_button_default"
-            android:text="@string/home"/>
-
-        <Button
-            android:id="@+id/button_entradas"
-            android:drawableStart="@drawable/ic_baseline_input_24"
-            android:textColor="#FFF"
-            android:textSize="17sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:textAllCaps="false"
-            android:background="@drawable/home_button_default"
-            android:text="@string/entradas"/>
-
-        <Button
-            android:id="@+id/button_gastos"
-            android:drawableStart="@drawable/ic_baseline_attach_money_24"
-            android:textColor="#FFF"
-            android:textSize="17sp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:background="@drawable/home_button_default"
-            android:text="@string/gastos"/>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/mainPane"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/flFragDetails"
+            android:layout_width="0dp"
+            android:layout_height="650dp"
+            android:layout_marginTop="24dp"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="595dp"/>
+            android:layout_height="600dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.96" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="40dp"
-            android:layout_marginEnd="15dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/ic_baseline_add_circle_24"
-            app:maxImageSize="67dp" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+            <Button
+                android:id="@+id/button_home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/home_button_default"
+                android:drawableStart="@drawable/ic_baseline_house_24"
+                android:text="@string/home"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textSize="17sp" />
 
+            <Button
+                android:id="@+id/button_entradas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/home_button_default"
+                android:drawableStart="@drawable/ic_baseline_input_24"
+                android:text="@string/entradas"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textSize="17sp" />
 
+            <Button
+                android:id="@+id/button_gastos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/home_button_default"
+                android:drawableStart="@drawable/ic_baseline_attach_money_24"
+                android:text="@string/gastos"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

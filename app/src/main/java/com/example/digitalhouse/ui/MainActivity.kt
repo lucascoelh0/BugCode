@@ -1,20 +1,24 @@
 package com.example.digitalhouse.ui
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import com.example.digitalhouse.EntradasFragment
-import com.example.digitalhouse.GastosFragment
-import com.example.digitalhouse.HomeFragment
+import androidx.core.widget.TextViewCompat
 import com.example.digitalhouse.R
+import com.example.digitalhouse.`interface`.ContractMainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ContractMainActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +29,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.mywallet)
 
         val frag = HomeFragment.newInstance()
-        button_home.setTextColor(getColor(R.color.colorPurple))
-        button_home.setBackgroundResource(R.drawable.home_button_selected)
 
         supportFragmentManager.beginTransaction().apply {
             add(R.id.frameLayout, frag)
@@ -34,16 +36,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_home.setOnClickListener {
-
-            button_home.setTextColor(getColor(R.color.colorPurple))
-            button_home.setBackgroundResource(R.drawable.home_button_selected)
-
-            button_entradas.setTextColor(getColor(R.color.colorWhite))
-            button_entradas.setBackgroundResource(R.drawable.home_button_default)
-
-            button_gastos.setTextColor(getColor(R.color.colorWhite))
-            button_gastos.setBackgroundResource(R.drawable.home_button_default)
-
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack(null)
                 replace(R.id.frameLayout, HomeFragment.newInstance())
@@ -52,16 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_entradas.setOnClickListener {
-
-            button_entradas.setTextColor(getColor(R.color.colorPurple))
-            button_entradas.setBackgroundResource(R.drawable.home_button_selected)
-
-            button_home.setTextColor(getColor(R.color.colorWhite))
-            button_home.setBackgroundResource(R.drawable.home_button_default)
-
-            button_gastos.setTextColor(getColor(R.color.colorWhite))
-            button_gastos.setBackgroundResource(R.drawable.home_button_default)
-
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack(null)
                 replace(R.id.frameLayout, EntradasFragment.newInstance())
@@ -70,16 +52,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         button_gastos.setOnClickListener {
-
-            button_gastos.setTextColor(getColor(R.color.colorPurple))
-            button_gastos.setBackgroundResource(R.drawable.home_button_selected)
-
-            button_entradas.setTextColor(getColor(R.color.colorWhite))
-            button_entradas.setBackgroundResource(R.drawable.home_button_default)
-
-            button_home.setTextColor(getColor(R.color.colorWhite))
-            button_home.setBackgroundResource(R.drawable.home_button_default)
-
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack(null)
                 replace(R.id.frameLayout, GastosFragment.newInstance())
@@ -91,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 //            supportFragmentManager.popBackStack()
 //        }
 
-        toolbar.setNavigationIcon(R.drawable.ic_backbt)
-
         toolbar.setNavigationOnClickListener {
             finish()
         }
@@ -101,5 +71,47 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun callFragDetailGastos() {
+        val fragDetailGastos = DetailGastosFragment.newInstance("Lista de Gastos")
+        supportFragmentManager.beginTransaction().apply {
+            addToBackStack(null)
+            replace(R.id.flFragDetails, fragDetailGastos)
+            commit()
+        }
+    }
+
+    override fun mudarCorHome(idCor: Int) {
+        button_home.setTextColor(ContextCompat.getColor(this, idCor))
+        if (idCor == R.color.colorWhite) {
+            button_home.compoundDrawableTintList = ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
+            button_home.setBackgroundResource(R.drawable.home_button_default)
+        } else {
+            button_home.compoundDrawableTintList = ColorStateList.valueOf(Color.parseColor("#800080"))
+            button_home.setBackgroundResource(R.drawable.home_button_selected)
+        }
+    }
+
+    override fun mudarCorEntrada(idCor: Int) {
+        button_entradas.setTextColor(ContextCompat.getColor(this, idCor))
+        if (idCor == R.color.colorWhite) {
+            button_entradas.compoundDrawableTintList = ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
+            button_entradas.setBackgroundResource(R.drawable.home_button_default)
+        } else {
+            button_entradas.compoundDrawableTintList = ColorStateList.valueOf(Color.parseColor("#800080"))
+            button_entradas.setBackgroundResource(R.drawable.home_button_selected)
+        }
+    }
+
+    override fun mudarCorGastos(idCor: Int) {
+        button_gastos.setTextColor(ContextCompat.getColor(this, idCor))
+        if (idCor == R.color.colorWhite) {
+            button_gastos.compoundDrawableTintList = ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
+            button_gastos.setBackgroundResource(R.drawable.home_button_default)
+        } else {
+            button_gastos.compoundDrawableTintList = ColorStateList.valueOf(Color.parseColor("#800080"))
+            button_gastos.setBackgroundResource(R.drawable.home_button_selected)
+        }
     }
 }
