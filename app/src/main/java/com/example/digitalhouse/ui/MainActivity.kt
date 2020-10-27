@@ -1,14 +1,17 @@
 package com.example.digitalhouse.ui
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
@@ -71,6 +74,31 @@ class MainActivity : AppCompatActivity(), ContractMainActivity {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_avatar -> {
+
+                val intent = Intent(this, ProfileActivity::class.java)
+                intent.putExtra("Nome", Bundle().apply {
+
+                })
+
+                val bundle: Bundle ?= intent.extras
+                if (bundle != null) {
+                    val nome = bundle.getString("Nome")
+                    val peso = bundle.getDouble("Peso")
+                    val idade = bundle.getInt("Idade")
+                    val titular = bundle.getBoolean("Titular")
+
+                    Toast.makeText(this, bundle.toString(), Toast.LENGTH_SHORT).show()
+                }
+
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun callFragDetailGastos() {

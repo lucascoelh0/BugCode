@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
+
         view.btnGastos.setOnClickListener {
             cma.callFragDetailGastos()
         }

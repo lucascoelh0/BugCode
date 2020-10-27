@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.digitalhouse.R
 import com.example.digitalhouse.`interface`.ContractMainActivity
+import com.example.digitalhouse.domain.Gasto
+import kotlinx.android.synthetic.main.fragment_gastos.*
+import kotlinx.android.synthetic.main.fragment_gastos.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class GastosFragment : Fragment() {
@@ -20,7 +23,20 @@ class GastosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_gastos, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_gastos, container, false)
+
+        view.botao_cadastrar_gastos.setOnClickListener {
+
+            val gasto = Gasto(
+                view.descricao_gasto.text.toString(),
+                view.categoria_gasto.text.toString(),
+                view.data_gasto.text.toString(),
+                view.valor_gasto.text.toString()
+            )
+
+        }
+
+        return view
     }
 
     override fun onAttach(context: Context) {
