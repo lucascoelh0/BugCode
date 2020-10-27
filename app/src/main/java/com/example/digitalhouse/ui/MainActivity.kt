@@ -81,19 +81,14 @@ class MainActivity : AppCompatActivity(), ContractMainActivity {
             R.id.action_avatar -> {
 
                 val intent = Intent(this, ProfileActivity::class.java)
-                intent.putExtra("Nome", Bundle().apply {
 
-                })
+                val bundle = Bundle()
+                bundle.putString("nome", "Lucas")
+                bundle.putInt("idade", 23)
+                bundle.putDouble("Peso", 77.5)
+                bundle.putBoolean("status", true)
 
-                val bundle: Bundle ?= intent.extras
-                if (bundle != null) {
-                    val nome = bundle.getString("Nome")
-                    val peso = bundle.getDouble("Peso")
-                    val idade = bundle.getInt("Idade")
-                    val titular = bundle.getBoolean("Titular")
-
-                    Toast.makeText(this, bundle.toString(), Toast.LENGTH_SHORT).show()
-                }
+                intent.putExtras(bundle)
 
                 startActivity(intent)
             }
