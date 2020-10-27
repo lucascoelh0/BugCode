@@ -33,7 +33,6 @@ class GastosFragment : Fragment() {
                 view.data_gasto.text.toString(),
                 view.valor_gasto.text.toString()
             )
-
         }
 
         return view
