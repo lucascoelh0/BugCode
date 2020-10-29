@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
 
                     makeShortToast("Bem vindo, ${edUsername.text.toString()}!")
                 }
-            } else if (edUsername.text.toString().isNotEmpty() && edSenha.text.toString() == "123456") {
+            } else if (edUsername.text.toString().isNotEmpty() && edSenha.text.toString() == "123") {
 
                 val loginIntent = Intent(this, MainActivity::class.java)
                 loginIntent.putExtra("username", Usuario(Random.nextInt(), edUsername.text.toString(), edSenha.text.toString()))

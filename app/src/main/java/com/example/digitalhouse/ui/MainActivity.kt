@@ -62,10 +62,6 @@ class MainActivity : AppCompatActivity(), ContractMainActivity {
             }
         }
 
-//        if (supportFragmentManager.backStackEntryCount > 3) {
-//            supportFragmentManager.popBackStack()
-//        }
-
         toolbar.setNavigationOnClickListener {
             finish()
         }
@@ -82,13 +78,13 @@ class MainActivity : AppCompatActivity(), ContractMainActivity {
 
                 val intent = Intent(this, ProfileActivity::class.java)
 
-                val bundle = Bundle()
-                bundle.putString("nome", "Lucas")
-                bundle.putInt("idade", 23)
-                bundle.putDouble("Peso", 77.5)
-                bundle.putBoolean("status", true)
-
-                intent.putExtras(bundle)
+//                val bundle = Bundle()
+//                bundle.putString("nome", "Lucas")
+//                bundle.putInt("idade", 23)
+//                bundle.putDouble("Peso", 77.5)
+//                bundle.putBoolean("status", true)
+//
+//                intent.putExtras(bundle)
 
                 startActivity(intent)
             }
