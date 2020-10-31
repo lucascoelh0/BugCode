@@ -31,7 +31,7 @@ class GastosFragment : Fragment() {
                 view.descricao_gasto.text.toString(),
                 view.categoria_gasto.text.toString(),
                 view.data_gasto.text.toString(),
-                view.valor_gasto.text.toString()
+                view.valor_gasto.text.toString().toDouble()
             )
         }
 

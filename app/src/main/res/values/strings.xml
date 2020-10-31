@@ -27,4 +27,7 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="ajuda">Ajuda</string>
     <string name="profile">Profile</string>
+    <string name="categoria_minusculo">categoria</string>
+    <string name="descricao_minusculo">descricao</string>
+    <string name="data_hora">Data/Hora</string>
 </resources>
